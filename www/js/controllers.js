@@ -38,9 +38,9 @@ angular.module('starter.controllers', [])
 
 
         $scope.ctrlData =
-        {
-            Selected: 'ng'
-        };
+            {
+                Selected: 'ng'
+            };
 
         //gets the answer
         $scope.change = function (question) {
@@ -102,7 +102,7 @@ angular.module('starter.controllers', [])
         $scope.$on('$ionicView.beforeEnter', function (event, viewData) {
             viewData.enableBack = true;
         })
-        
+
     })
     .controller('AppointmentCtrl', function ($scope) {
         $scope.$on('$ionicView.beforeEnter', function (event, viewData) {
@@ -120,14 +120,14 @@ angular.module('starter.controllers', [])
         };
 
         $scope.ctrlData =
-        {
-            members: '',
-            age: '',
-            vetaran: '',
-            stay: '',
-            appointmentDate: ''
+            {
+                members: '',
+                age: '',
+                vetaran: '',
+                stay: '',
+                appointmentDate: ''
 
-        };
+            };
         $(document).ready(function () {
 
             $('#db_btn').click(function () {
@@ -136,6 +136,7 @@ angular.module('starter.controllers', [])
                 var lname = $('#lname').val();
                 var city = $('#city').val();
                 var state = $('#state').val();
+                var contact = $('#contact').val();
                 var names = $('#names').val();
                 var dd214 = $('#dd214').val();
                 var members = $scope.ctrlData.members;
@@ -145,14 +146,16 @@ angular.module('starter.controllers', [])
                 var date = $('#date').val().substring(0, 10);
                 var start = $('#date').val().substring(11, 17);
 
+
                 $.ajax({
                     method: "post",
-                    url: "http://www.txthomeless.com/appointment.php?",
+                    url: "https://www.txthomeless.com/appointment.php?",
                     data: {
                         fname: fname,
                         lname: lname,
                         city: city,
                         state: state,
+                        contact: contact,
                         names: names,
                         dd214: dd214,
                         members: members,
@@ -183,7 +186,7 @@ angular.module('starter.controllers', [])
 
                 $.ajax({
                     method: "post",
-                    url: "http://www.txthomeless.com/checkappointment.php?",
+                    url: "https://www.txthomeless.com/checkappointment.php?",
                     data: {
                         confirmation: confirmation,
                     },
@@ -198,7 +201,7 @@ angular.module('starter.controllers', [])
                 $("#cancel").hide();
                 $.ajax({
                     method: "post",
-                    url: "http://www.txthomeless.com/cancelAppointment.php?",
+                    url: "https://www.txthomeless.com/cancelAppointment.php?",
                     data: {
                         confirmation: confirmation,
                     },
@@ -217,7 +220,7 @@ angular.module('starter.controllers', [])
         $scope.$on('$ionicView.beforeEnter', function (event, viewData) {
             viewData.enableBack = true;
         });
-       
+
 
         //$scope.user = "Daniel";
     })
